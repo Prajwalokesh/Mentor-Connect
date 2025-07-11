@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Award, 
@@ -14,13 +14,14 @@ import {
   Star,
   Calendar
 } from 'lucide-react';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useTheme } from '../context/ThemeContext';
+
 
 const AboutPage: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  const { darkMode } = useTheme();
 
   const achievements = [
     {
@@ -86,10 +87,8 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
-    }`}>
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      <Header />
 
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
@@ -313,6 +312,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* <Footer darkMode={darkMode} /> */}
+    
     </div>
   );
 };

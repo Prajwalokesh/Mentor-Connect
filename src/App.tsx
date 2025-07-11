@@ -9,6 +9,7 @@ import AdminLogin from './pages/AdminLogin';
 import MentorLogin from './pages/MentorLogin';
 import StudentLogin from './pages/StudentLogin';
 import Footer from './components/Footer';
+import Features from './pages/features';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/features" element={<Features />} />
               <Route path="/select-role" element={<RoleSelection />} />
               <Route path="/admin-login" element={<AdminLogin />} />
               <Route path="/mentor-login" element={<MentorLogin />} />
